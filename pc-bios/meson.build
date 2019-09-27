@@ -56,6 +56,7 @@ blobs = files(
   'efi-virtio.rom',
   'efi-e1000e.rom',
   'efi-vmxnet3.rom',
+  'esp32-v3-rom.bin',
   'qemu-nsis.bmp',
   'bamboo.dtb',
   'canyonlands.dtb',
