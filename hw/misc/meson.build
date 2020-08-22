@@ -114,7 +114,12 @@ softmmu_ss.add(when: 'CONFIG_XTENSA_ESP32', if_true: files(
   'esp32_crosscore_int.c',
   'esp32_dport.c',
   'esp32_rng.c',
+  'esp32_rsa.c',
 ))
+
+if 'CONFIG_GCRYPT' in config_host
+  softmmu_ss.add(gcrypt)
+endif
 
 softmmu_ss.add(when: 'CONFIG_GRLIB', if_true: files('grlib_ahb_apb_pnp.c'))
 
