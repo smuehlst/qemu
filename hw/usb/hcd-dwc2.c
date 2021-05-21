@@ -362,11 +362,10 @@ babble:
             intr &= ~HCINTMSK_RESERVED14_31;
             s->hreg1[index + 2] |= intr;
             do_intr = true;
-            done = true;
         } else {
             intr |= HCINTMSK_CHHLTD;
-            done = true;
         }
+        done = true;
     }
 
     usb_packet_cleanup(&p->packet);
