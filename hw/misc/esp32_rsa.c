@@ -62,7 +62,7 @@ static bool mpi_block_to_gcrypt(const uint32_t* mem_block, size_t n_bytes, gcry_
         return false;
     }
     if (scanned != n_bytes) {
-        fprintf(stderr, "%s: gcry_mpi_scan scanned %lu, expected %lu", __func__, scanned, n_bytes);
+        fprintf(stderr, "%s: gcry_mpi_scan scanned %zu, expected %zu", __func__, scanned, n_bytes);
         return false;
     }
     return true;
