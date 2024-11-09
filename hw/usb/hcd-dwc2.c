@@ -359,17 +359,13 @@ babble:
         if (p->packet.status == USB_RET_NAK &&
             (eptype == USB_ENDPOINT_XFER_CONTROL ||
              eptype == USB_ENDPOINT_XFER_BULK)) {
-            /*
-             * for ctrl/bulk, automatically retry on NAK,
-             * but send the interrupt anyway
-             */
             intr &= ~HCINTMSK_RESERVED14_31;
             s->hreg1[index + 2] |= intr;
             do_intr = true;
         } else {
             intr |= HCINTMSK_CHHLTD;
-            done = true;
         }
+        done = true;
     }
 
     usb_packet_cleanup(&p->packet);
@@ -1264,7 +1260,7 @@ static void dwc2_reset_enter(Object *obj, ResetType type)
     s->gpvndctl = 0;
     s->ggpio = 0;
     s->guid = 0;
-    s->gsnpsid = 0x4f54294a;
+    s->gsnpsid = 0x4f54280a;
     s->ghwcfg1 = 0;
     s->ghwcfg2 = (8 << GHWCFG2_DEV_TOKEN_Q_DEPTH_SHIFT) |
                  (4 << GHWCFG2_HOST_PERIO_TX_Q_DEPTH_SHIFT) |
